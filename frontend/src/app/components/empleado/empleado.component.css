@@ -1,0 +1,88 @@
+/* ===== Colores base (Angular Material-like) ===== */
+:root{
+  --bg: #ffffff;                     /* fondo */
+  --text: rgba(0,0,0,0.87);          /* texto alto contraste */
+  --text-muted: rgba(0,0,0,0.6);
+  --surface: #ffffff;                /* tarjetas/tabla */
+  --surface-alt: #f5f5f5;            /* encabezados / bandas */
+  --border: #e0e0e0;
+
+  --primary: #3f51b5;                /* Indigo 500 */
+  --primary-hover: #303f9f;          /* Indigo 700 */
+  --danger: #e53935;                 /* Red 600 */
+  --danger-hover: #c62828;           /* Red 800 */
+}
+
+/* ===== Fondo y tipografía global ===== */
+html, body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Navbar clara y limpia ===== */
+.navbar,
+.bg-body-tertiary {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--border);
+}
+.navbar .navbar-brand,
+.navbar a {
+  color: var(--text) !important;
+  font-weight: 600;
+}
+
+/* ===== Tarjetas / contenedores ===== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: none; /* sin neón */
+}
+
+/* ===== Formularios: texto negro, sin “humo” ===== */
+.form-control {
+  background: #fff !important;
+  color: var(--text) !important;
+  border: 1px solid #cfd8dc;
+  box-shadow: none !important;
+}
+.form-control::placeholder { color: var(--text-muted); }
+
+/* ===== Tabla: encabezado suave, filas claras ===== */
+.table {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.table thead th {
+  background: var(--surface-alt);
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+.table tbody td { color: var(--text); }
+
+/* ===== Botones con buen contraste ===== */
+.btn-primary {
+  background: var(--primary) !important;
+  border: 0 !important;
+  color: #fff !important;
+}
+.btn-primary:hover { background: var(--primary-hover) !important; }
+
+.btn-danger {
+  background: var(--danger) !important;
+  border: 0 !important;
+  color: #fff !important;
+}
+.btn-danger:hover { background: var(--danger-hover) !important; }
+
+.btn-secondary {
+  background: #6c757d !important;
+  border: 0 !important;
+  color: #fff !important;
+}
+
+/* ===== Espaciado de la página ===== */
+.container { padding-bottom: 32px; }

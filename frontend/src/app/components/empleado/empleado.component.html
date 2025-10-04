@@ -1,0 +1,62 @@
+<nav class="navbar bg-body-tertiary mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Gestión de Empleados</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row g-3">
+    <!-- Formulario -->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5>Registro de Nuevo Empleado</h5>
+          <form #f="ngForm" (ngSubmit)="addEmpleado(f)" autocomplete="off">
+            <div class="mb-2">
+              <input class="form-control" type="text" placeholder="Nombre"
+                     name="nombre" [(ngModel)]="empleadoService.selectedEmpleado.nombre" required>
+            </div>
+            <div class="mb-2">
+              <input class="form-control" type="text" placeholder="Cargo"
+                     name="cargo" [(ngModel)]="empleadoService.selectedEmpleado.cargo" required>
+            </div>
+            <div class="mb-2">
+              <input class="form-control" type="text" placeholder="Departamento"
+                     name="departamento" [(ngModel)]="empleadoService.selectedEmpleado.departamento" required>
+            </div>
+            <div class="mb-3">
+              <input class="form-control" type="number" placeholder="Sueldo"
+                     name="sueldo" [(ngModel)]="empleadoService.selectedEmpleado.sueldo" required>
+            </div>
+            <button class="btn btn-primary me-2" type="submit">Crear</button>
+            <button class="btn btn-secondary" type="button" (click)="f.resetForm()">Limpiar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="col-md-8">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th><th>Cargo</th><th>Departamento</th><th>Sueldo</th><th>Ops</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empleado of empleadoService.empleados">
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.cargo }}</td>
+            <td>{{ empleado.departamento }}</td>
+            <td>{{ empleado.sueldo }}</td>
+            <td>
+              <!-- OJO: sin '!' en el template -->
+              <button class="btn btn-danger btn-sm" (click)="onDelete(empleado._id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
